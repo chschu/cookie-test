@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello, Cookie!</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #000;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            width: 500px;
+        }
+
+        input[type="submit"] {
+            border: none;
+            background-color: #35c7e4;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: inherit;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Hello, Cookie!</h1>
+<form th:object="${formBean}" method="post">
+    <input type="submit" name="set-cookie-standard-attributes" value="Set-Cookie with standard attributes"
+           th:formaction="@{/set-cookie-standard-attributes}"/>
+    <input type="submit" name="set-cookie-custom-attributes" value="Set-Cookie with custom attributes "
+           th:formaction="@{/set-cookie-custom-attributes}"/>
+
+    <input type="submit" name="set-cookie-no-max-age" value="Set-Cookie without Max-Age (set session cookie)"
+           th:formaction="@{/set-cookie-no-max-age}"/>
+    <input type="submit" name="set-cookie-negative-max-age" value="Set-Cookie with negative Max-Age (set session cookie)"
+           th:formaction="@{/set-cookie-negative-max-age}"/>
+    <input type="submit" name="set-cookie-zero-max-age" value="Set-Cookie with zero Max-Age (remove cookie)"
+           th:formaction="@{/set-cookie-zero-max-age}"/>
+    <input type="submit" name="set-cookie-positive-max-age" value="Set-Cookie with positive Max-Age (set cookie with timeout)"
+           th:formaction="@{/set-cookie-positive-max-age}"/>
+</form>
+</body>
+</html>
